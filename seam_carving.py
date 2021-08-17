@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
 """seam-carving.py
-
   Written by Husam Alsayed Ahmad 
   AI Engineer
   husamalsayedahmad@gmail.com 
   August 2021
-
 """
 import numpy as np
 import os
@@ -147,7 +144,6 @@ def get_deleted_lst(sobel_img,columns = True):
   return lst
 
 def get_new_image(original_image,num_deleted_columns,num_deleted_rows):
-  original_image = copy.deepcopy(image)
   for i in range(num_deleted_columns):
     sobel_image = calc_energy(original_image)
     lst = get_deleted_lst(sobel_image)
@@ -175,7 +171,6 @@ if __name__ == '__main__':
   folder_name = './outputs'
   if not os.path.exists(folder_name):
         os.mkdir(folder_name)
-  # cv2.imshow('image',new_image)
   cv2.imwrite(f'{folder_name}/{name}',new_image)
 
 
